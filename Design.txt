@@ -1,0 +1,15 @@
+1. HashMap can constructed with given size.
+
+2. Provides insert, remove and lookup functionality.
+
+3. HashMap supports generic key-value pair
+
+4. HashMap class supports synchronization with following features,
+    a. Bucket index based locking. i.e. one mutex per bucket index.
+    b. Supports multiple writers at the same time if the writers are inserting to different bucket index
+    c. std::mutex is used as a synchronization primitive for lookup, insert and remove.
+		 (pthreads read_write locks can be used instead of std::mutex, which is optimized in terms
+		 of simultaneous reads). 
+		 Used simple mutex because, 
+	     1. read write locks are more expensive than simple mutex and 
+		 2. given requirements is to support only multiple writers at the same time.
